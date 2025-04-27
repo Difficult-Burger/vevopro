@@ -146,7 +146,7 @@ if __name__ == "__main__":
     output_file = "numerical/normalized_no_num.json"
     
     # 从第238条数据开始继续处理（索引从0开始，所以是237）
-    start_index = 450
+    start_index = 487
     
     # 处理文件
     process_file(input_file, output_file, start_index) 
