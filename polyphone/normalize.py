@@ -103,7 +103,7 @@ def call_deepseek_api(text, polyphone, pronunciation=None):
         print(f"API调用错误: {e}")
         return polyphone
 
-def process_file(input_file, pronunciation_file, output_file, max_count=None):
+def process_file(input_file, pronunciation_file, output_file):
     """
     处理文件，将多音字替换为同音唯一读音的字
     
@@ -199,11 +199,6 @@ def process_file(input_file, pronunciation_file, output_file, max_count=None):
         
         # 增加计数
         cnt += 1
-        
-        # 如果达到指定数量，停止处理
-        if max_count and cnt >= max_count:
-            print(f"已达到指定处理数量 {max_count}，停止处理")
-            break
     
     # 完成处理后，添加结束的方括号
     with open(output_file, 'a', encoding='utf-8') as f:
@@ -219,8 +214,6 @@ if __name__ == "__main__":
     # 确保输出目录存在
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
     
-    # 设置临时处理数量限制
-    max_count = 200  # 只处理30条数据进行测试
     
     # 处理文件
-    process_file(input_file, pronunciation_file, output_file, max_count)
+    process_file(input_file, pronunciation_file, output_file)
