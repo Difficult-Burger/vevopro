@@ -196,8 +196,6 @@ def process_file(input_file, output_file, start_index=0):
                 # 增加处理计数
                 processed_count += 1
             
-            if processed_count == 200:
-                break
         
         time.sleep(0.05)
     
