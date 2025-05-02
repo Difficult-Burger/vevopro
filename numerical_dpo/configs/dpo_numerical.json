@@ -1,0 +1,46 @@
+{
+  "exp_name": "numerical_dpo",
+  "log_dir": "numerical_dpo/runs",
+  "dataset": {
+    "numerical_dpo/data/dpo_data.json": 1
+  },
+  "train": {
+    "random_seed": 42,
+    "dataloader_seed": 42,
+    "batch_size": 1,
+    "max_epoch": 3,
+    "use_dynamic_batchsize": false,
+    "save_checkpoint_stride": [1],
+    "keep_last": [3],
+    "run_eval": false
+  },
+  "preprocess": {
+    "bos_audio_token_id": 32064,
+    "eos_audio_token_id": 32065,
+    "end_token_id": 2,
+    "audio_token_shift": 32066,
+    "tokenizer_path": "Ints/ins_model_dpo_0228",
+    "semantic_code_type": "extracted"
+  },
+  "model": {
+    "type": "text-to-speech",
+    "name": "ins",
+    "pretrained_path": "Ints/ins_model_dpo_0228"
+  },
+  "optimizer": {
+    "lr": 5e-7,
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "weight_decay": 0.01
+  },
+  "scheduler": {
+    "warmup_steps": 50,
+    "factor": 0.999
+  },
+  "dpo": {
+    "beta": 0.1,
+    "reference_free": false,
+    "loss_type": "sigmoid",
+    "label_smoothing": 0.0
+  }
+} 
