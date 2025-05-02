@@ -17,10 +17,10 @@ import random
 
 # 添加项目根目录到 PYTHONPATH
 current_dir = os.path.dirname(os.path.abspath(__file__))
-project_root = os.path.dirname(os.path.dirname(current_dir))
+project_root = os.path.dirname(current_dir)
 sys.path.append(project_root)
 
-from numerical_dpo.utils.dpo_utils import extract_speech_tokens_from_audio
+from utils.dpo_utils import extract_speech_tokens_from_audio
 
 def parse_args():
     parser = argparse.ArgumentParser(description="准备DPO训练数据")
